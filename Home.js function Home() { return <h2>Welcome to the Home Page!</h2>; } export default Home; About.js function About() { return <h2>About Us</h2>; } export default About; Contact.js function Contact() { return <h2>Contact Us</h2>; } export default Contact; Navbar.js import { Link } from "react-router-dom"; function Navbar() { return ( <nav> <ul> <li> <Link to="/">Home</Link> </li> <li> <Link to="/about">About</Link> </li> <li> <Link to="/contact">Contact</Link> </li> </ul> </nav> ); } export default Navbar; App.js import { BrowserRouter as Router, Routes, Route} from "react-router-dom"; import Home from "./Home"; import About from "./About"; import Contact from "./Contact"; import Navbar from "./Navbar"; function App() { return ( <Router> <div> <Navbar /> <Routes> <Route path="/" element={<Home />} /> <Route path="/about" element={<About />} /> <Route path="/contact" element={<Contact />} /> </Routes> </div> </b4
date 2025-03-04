@@ -1,0 +1,57 @@
+Home.js
+function Home() {
+return <h2>Welcome to the Home Page!</h2>;
+}
+export default Home;
+About.js
+function About() {
+return <h2>About Us</h2>;
+}
+export default About;
+Contact.js
+function Contact() {
+return <h2>Contact Us</h2>;
+}
+export default Contact;
+Navbar.js
+import { Link } from "react-router-dom";
+function Navbar() {
+return (
+<nav>
+<ul>
+<li>
+<Link to="/">Home</Link>
+</li>
+<li>
+<Link to="/about">About</Link>
+</li>
+<li>
+<Link to="/contact">Contact</Link>
+</li>
+</ul>
+</nav>
+);
+}
+export default Navbar;
+App.js
+import { BrowserRouter as Router, Routes, Route} from
+"react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+import Navbar from "./Navbar";
+function App() {
+return (
+<Router>
+<div>
+<Navbar />
+<Routes>
+<Route path="/" element={<Home />} />
+<Route path="/about" element={<About />} />
+<Route path="/contact" element={<Contact />} />
+</Routes>
+</div>
+</Router>
+);
+}
+export default App;
